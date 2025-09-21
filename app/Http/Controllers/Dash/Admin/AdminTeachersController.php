@@ -65,8 +65,6 @@ class AdminTeachersController extends Controller
         if ($request->has('new_password') && $request->new_password != null) {
             $teacher->password = Hash::make($request->new_password);
             $teacher->save();
-
-            dd("pass updated");
         }
 
         return redirect()->route('dash.admin.teachers.index')->with('success','Teacher updated successfuly');

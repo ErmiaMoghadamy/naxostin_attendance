@@ -28,8 +28,8 @@
         </div>
 
         <div class="mb-3">
-            <label for="password" class="form-label">New Password:</label>
-            <input name="password" type="password" class="form-control" id="password" placeholder="Enter Password">
+            <label for="new_password" class="form-label">New Password:</label>
+            <input autocomplete="off" name="new_password" type="password" class="form-control" id="new_password" placeholder="New Password">
         </div>
 
         <button class="btn btn-dark w-100" type="submit">

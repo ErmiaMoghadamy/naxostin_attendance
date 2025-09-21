@@ -48,12 +48,12 @@ class AdminTeachersController extends Controller
     }
 
     public function update(Request $request, $id) {
+
         $teacher = User::findOrFail( $id );
 
         $request->validate([
             'fullname' => 'string|required',
             'username' => 'string|required',
-            'password'=> 'string|nullable',
         ]);
 
         if (User::where('username', $request->username)->get()->isNotEmpty() && $request->username != $teacher->username) {
@@ -62,9 +62,11 @@ class AdminTeachersController extends Controller
 
         $teacher->update($request->only('username', 'fullname'));
 
-        if ($request->has('password')) {
-            $teacher->password = Hash::make($request->password);
+        if ($request->has('new_password') && $request->new_password != null) {
+            $teacher->password = Hash::make($request->new_password);
             $teacher->save();
+
+            dd("pass updated");
         }
 
         return redirect()->route('dash.admin.teachers.index')->with('success','Teacher updated successfuly');

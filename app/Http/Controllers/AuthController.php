@@ -27,11 +27,11 @@ class AuthController extends Controller
         $user = User::where('username', $credentials['username'])->first();
 
         if (!$user) {
-            return redirect()->back()->with('error','Wrong Username or Password');
+            return redirect()->back()->withErrors(['Wrong Username or Password']);
         }
 
         if (!Hash::check($credentials['password'], $user->password)) {
-            return redirect()->back()->with('error','Wrong Username or Password');
+            return redirect()->back()->with(['Wrong Username or Password']);
         }
 
         Auth::login ($user);

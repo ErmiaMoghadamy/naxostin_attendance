@@ -17,7 +17,7 @@
         </div>
 
         <div class="col-12 col-md-3 p-3">
-            <a href="{{ route('dash.admin.teachers.index') }}" class="underline-none text-decoration-none">
+            <a href="{{ route('dash.admin.classbooks.index') }}" class="underline-none text-decoration-none">
                 <div class="text-light bg-dark px-3 pt-3 pb-1 rounded border">
                     <h2 class="mb-">Classbooks</h2>
                     <p class="py-2"></p>
